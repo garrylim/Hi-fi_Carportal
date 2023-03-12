@@ -1,0 +1,583 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Body config*/
+
+body.index {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("/assets/images/background.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Header */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.welcome-section {
+    position: absolute;
+    z-index: 2;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1);
+  }
+  
+  .welcome-section.hide {
+    transform: scale(0);
+  }
+  
+  .welcome-section h1 {
+    color: #fff;
+    font-size: 3rem;
+    text-align: auto;
+    display: block;
+  }
+  
+  .welcome-section p {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    display: block;
+  }
+
+/* Logo here */
+
+.logo-container {
+    display: inline-block;
+}
+
+.logo-container h2 {
+    display: inline-block;
+    margin: 0;
+    font-size: 2em;
+    user-select: none;
+}
+
+.logo-white {
+    color: #FFF;
+}
+
+.logo-orange {
+    color: orange;
+}
+
+/*Navigation Bar*/
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    padding-bottom: 6px;
+    cursor: pointer;
+}
+
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .3s;
+}
+
+.navigation a:hover::after {
+    transform: scaleX(1);
+}
+
+.navigation .dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.navigation .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    top: 80px;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    align-items: center;
+}
+
+.navigation .dropdown-content.active {
+    display: block;
+}
+
+.navigation .dropdown-content a {
+    display: block;
+    margin: 0;
+    padding: 10px;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.1em;
+    text-decoration: inherit;
+    transition: .3s;
+    align-items: center;
+    text-align: center;
+}
+
+.navigation .dropdown-content a:hover {
+    background-color: #162938;
+    color: #fff;
+}
+
+.navigation .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navigation .btn-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: .5s;
+}
+
+.navigation .btn-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+
+
+
+/* Wrapper */
+
+.wrapper-login {
+    position: center;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 20px;
+    backdrop-filter: blur(9px) brightness(90%);
+    box-shadow: 0 0 10px orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(245, 131, 207, 0.247);
+    transition: height .2s ease;
+    transform: scale(0);
+    transition: transform .5s , height .2s ease;
+}
+
+.wrapper-login.active-popup {
+    transform: scale(1);
+
+}
+
+.wrapper-login.active {
+    height: 520px;
+}
+
+.wrapper-login .form-box {
+    width: 100%;
+    padding: 40px;
+
+}
+
+.wrapper-login.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper-login .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper-login .form-box.register{
+    position: absolute;
+    transform: translateX(400px);
+}
+
+.wrapper-login.active .form-box.register{
+    transition: none;
+    transform: translateX(0);
+}
+
+
+.wrapper-login .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px ;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: #162938;
+
+}
+
+/*Input*/
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1.1em;
+    color: #162938;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input.has-value ~ label {
+  top: -5px;
+}
+  
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    z-index: 1;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+    font-weight: 600;
+}
+
+.remember-me {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-me label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.remember-me a {
+    color: #162938;
+    text-decoration: none;
+}
+
+.remember-me a:hover {
+    text-decoration: underline;
+}
+
+/*Button*/
+
+.btn-hover {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 25px; /*Change button size with this*/
+    border: 2px solid;
+    border-color: var(--button-color);
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: inherit;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--button-color);
+}
+
+.btn-hover:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-radius: 10px;
+    border: 2px solid var(--button-color);
+    z-index: -1;
+    transition: all 0.3s ease-in-out;
+}
+
+/*Btn effect and color this included the pattern, shadow and hover when you focus*/
+
+.btn-hover:focus {
+    background-color: var(--button-color);
+    color: #fff;
+    outline: none;
+}
+
+.btn-hover:hover {
+    color: #fff;
+    box-shadow: 0 15px 15px -10px var(--button-color);
+}
+
+.btn-hover:hover:before {
+    transform: translateY(0);
+}
+
+.btn-hover.btn-red {
+    --button-color: red;
+}
+
+.btn-hover.btn-green {
+    --button-color: green;
+}
+
+.btn-hover.btn-blue {
+    --button-color: blue;
+}
+
+.btn-hover.btn-black {
+    --button-color: black;
+    color: #fff;
+}
+
+
+.btn-login {
+    width: 100%;
+    height: 45px;
+    background: orange;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+.register {
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.register p a {
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
+
+/* table th,td */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: sans-serif;
+    font-size: 16px;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #ffa07a; /* light orange */
+    color: #fff;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #fffacd; /* light yellow */
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #ecbdaa;
+  }
+  
+  /*Footer*/
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    right: 0px;
+    color: silver;
+    font-size: 13.5px;
+    text-align: right;
+  }
+
+  /* nav left*/
+  .nav-contact {
+    position: absolute;
+    width: 60px;
+    transition: all 0.3s linear;
+    box-shadow: 2px 2px 8px 0px rgba(0,0,0,.4);
+    left: 0;
+    top: 10rem;
+  }
+  
+  .nav-contact ul {
+      margin-top: 0;
+      margin-bottom: 0rem;
+  }
+  .nav-contact li{
+    height: 45px;
+    position:relative;
+  }
+  .nav-contact li a{
+    color: #fff !important;
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 45px;
+    padding-left:25%;
+    border-bottom: 1px solid rgba(0,0,0,.4);
+    transition: all .3s linear;
+    text-decoration: none !important;
+  }
+  .nav-contact li:nth-child(1) a{
+    background: #4267B2;
+  }
+  .nav-contact li:nth-child(2) a{
+    background: #1DA1F2;
+  }
+  .nav-contact li:nth-child(3) a{
+    background: #E1306C;
+  }
+  .nav-contact li:nth-child(4) a{
+    background: #2867B2;
+  }
+  .nav-contact li:nth-child(5) a{
+    background: #333;
+  }
+  .nav-contact li:nth-child(6) a{
+    background: #ff0000;
+  }
+  .nav-contact li a i{
+      position: absolute;
+      top: 14px;
+      left: 24px;
+      font-size: 15px;
+  }
+  .nav-contact ul li a span{
+    display: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .nav-contact a:hover {
+    z-index:1;
+    width: 200px;
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.3);
+  }
+  .nav-contact ul li:hover a span{
+    padding-left: 30%;
+    display: block;
+    font-size: 15px;
+  }
+
+  #popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-container {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .popup-title {
+    margin: 0;
+  }
+  
+  .popup-close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .popup-body {
+    margin: 0;
+  }
